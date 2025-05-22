@@ -235,6 +235,7 @@
     <Content Include="images\Tulips.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts.sql" />
     <Content Include="TransactionHistory.aspx" />
     <Content Include="scripts\scripts.js" />
     <Content Include="styles\base.css" />
