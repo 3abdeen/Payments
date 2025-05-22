@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" 
+     Inherits="Payments.MasterPage" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Payment Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="styles/base.css" rel="stylesheet" />
+    <link href="styles/default.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager runat="server" />
+        <telerik:RadWindowManager ID="RadWindowManager1" runat="server" Skin="Material" />
+
+        <div id="wrapper">
+            <telerik:RadPageLayout runat="server" ID="MasterLayout" GridType="Fluid" CssClass="main-layout">
+                <Rows>
+                    <telerik:LayoutRow CssClass="header" RowType="Container">
+                        <Columns>
+                            <telerik:LayoutColumn Span="3" SpanMd="4" SpanSm="12" SpanXs="12">
+                                <div class="logo-container">
+                                    <a href="~/Default.aspx" runat="server" class="logo">
+                                        <img src="images/logo.png" alt="Payment Portal" class="logo-img" />
+                                    </a>
+                                </div>
+                            </telerik:LayoutColumn>
+
+                            <telerik:LayoutColumn Span="9" SpanMd="8" SpanSm="12" SpanXs="12">
+                                <telerik:RadMenu ID="MainMenu" runat="server" Skin="Material" Flow="Horizontal" 
+                                    CssClass="main-nav" EnableRoundedCorners="true" EnableShadows="true">
+                                    <Items>
+                                        <telerik:RadMenuItem Text="Dashboard" NavigateUrl="~/Dashboard.aspx" />
+                                        <telerik:RadMenuItem Text="Transactions" NavigateUrl="~/Transactions.aspx">
+                                            <Items>
+                                                <telerik:RadMenuItem Text="New Transaction" NavigateUrl="~/CreateTransaction.aspx" />
+                                                <telerik:RadMenuItem Text="History" NavigateUrl="~/TransactionHistory.aspx" />
+                                            </Items>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Reports" NavigateUrl="~/Reports.aspx" />
+                                        <telerik:RadMenuItem Text="Settings" NavigateUrl="~/Settings.aspx" />
+                                    </Items>
+                                </telerik:RadMenu>
+                            </telerik:LayoutColumn>
+                        </Columns>
+                    </telerik:LayoutRow>
+
+                    <telerik:LayoutRow CssClass="main-content">
+                        <Columns>
+                            <telerik:CompositeLayoutColumn Span="12">
+                                <Content>
+                                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </Content>
+                            </telerik:CompositeLayoutColumn>
+                        </Columns>
+                    </telerik:LayoutRow>
+                </Rows>
+            </telerik:RadPageLayout>
+        </div>
+    </form>
+</body>
+</html>
